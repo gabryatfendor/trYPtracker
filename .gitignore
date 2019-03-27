@@ -1,0 +1,8 @@
+# OSM caches
+cache/
+
+# VSCode related files
+.vscode/
+
+# output
+*.html
