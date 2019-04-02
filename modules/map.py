@@ -65,7 +65,7 @@ class Routing:
     """Using graphhopper API we retrieve the json of the route between 2 points"""
     config = configparser.ConfigParser()
     config.read('configuration')
-    API_KEY = config['REQUEST']['API_KEY']
+    API_KEY = config['REQUEST']['api_key']
     REQUEST_URL = "https://graphhopper.com/api/1/"
     VEICHLE = config['MAPPING']['veichle']
     @staticmethod

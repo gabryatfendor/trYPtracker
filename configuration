@@ -1,5 +1,5 @@
 [REQUEST]
-API_KEY = YOUR_GRAPHHOPPER_API_KEY
+api_key = YOUR_GRAPHHOPPER_API_KEY
 
 [MAPPING]
 address = your_address
