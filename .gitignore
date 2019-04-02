@@ -7,6 +7,8 @@ cache/
 # output
 *.html
 home_to_destination/*.html
+home_to_destination*/*
+routes*/*
 routes/*.html
 routes/*.json
 routes/*.gpx
