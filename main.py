@@ -20,9 +20,9 @@ def main():
 
     for operator in ast.literal_eval(config.get("MAPPING", "operators")):
         #create folders for needed saving operations later
-        if not os.path.exists(os.path.dirname("./home_to_destination/{}".format(operator))):
+        if not os.path.exists("./home_to_destination/{}".format(operator)):
             os.mkdir("./home_to_destination/{}".format(operator))
-        if not os.path.exists(os.path.dirname("./routes/{}".format(operator))):
+        if not os.path.exists("./routes/{}".format(operator)):
             os.mkdir("./routes/{}".format(operator))
         operator_parameter = '"operator" = "{}"'.format(operator)
         query = overpassQueryBuilder(area=area_id, elementType='rel', selector=operator_parameter, out='body')

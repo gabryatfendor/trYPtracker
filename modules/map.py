@@ -5,6 +5,8 @@ import configparser
 
 import folium
 
+import pprint
+
 from OSMPythonTools.api import Api
 
 
@@ -18,14 +20,16 @@ class Map:
         node_list_to_draw = []
         map_setted = False
         folium_map = None
+        print(relation.members())
         for member in relation.members():
-            for node in member.nodes():
-                node_list_to_draw.append([node.lat(), node.lon()])
-                if not map_setted:
-                    map_setted = True
-                    folium_map = folium.Map(location=node_list_to_draw[0], zoom_start=14, tiles='openstreetmap')
-            folium.PolyLine(node_list_to_draw, color='green', weight=2.5).add_to(folium_map)
-            node_list_to_draw = []
+            if len(member.nodes()) > 0:
+                for node in member.nodes():
+                    node_list_to_draw.append([node.lat(), node.lon()])
+                    if not map_setted:
+                        map_setted = True
+                        folium_map = folium.Map(location=node_list_to_draw[0], zoom_start=14, tiles='openstreetmap')
+                folium.PolyLine(node_list_to_draw, color='green', weight=2.5).add_to(folium_map)
+                node_list_to_draw = []
 
         folium.Marker(location=route_start_point, icon=folium.Icon(color='red')).add_to(folium_map)
         folium_map.save('./routes/{}/{}.html'.format(operator, ref))
@@ -76,6 +80,7 @@ class Routing:
         }
 
         request_string = "{}route?point={},{}&point={},{}&veichle={}&locale=en&points_encoded=false&key={}".format(Routing.REQUEST_URL, point_1[0], point_1[1], point_2[0], point_2[1], Routing.VEICHLE, Routing.API_KEY)
+        print("request_string = " + request_string)
         request = urllib.request.Request(request_string, headers=headers)
 
         opener = urllib.request.build_opener()

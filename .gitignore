@@ -13,3 +13,9 @@ routes/*.html
 routes/*.json
 routes/*.gpx
 home_to_destination/*.json
+
+#personal data
+configuration
+
+#cache
+modules/__pycache__
