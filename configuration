@@ -1,0 +1,7 @@
+[REQUEST]
+api_key = YOUR_GRAPHHOPPER_API_KEY
+
+[MAPPING]
+address = your_address
+veichle = car
+operators = ["operator1", "operator2", "operator3"]
